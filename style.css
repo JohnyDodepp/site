@@ -56,15 +56,15 @@ body.modal-open{overflow:hidden}
 .menu{padding:28px 0 42px}
 .section-title{margin:0 0 30px;text-align:center;font-size:22px;font-weight:700}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.card{position:relative;height:300px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.card{container-type:inline-size;position:relative;height:300px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
 
 .card::before{content:"";position:absolute;left:0;right:0;bottom:22px;height:144px;background:var(--green);border-radius:4px}
 .card img{position:absolute;left:50%;bottom:59px;width:83%;transform:translateX(-50%);transition:transform .25s}
-.card--drink img{width:auto;height:270px;bottom:89px}
+.card--drink img{width:auto;height:83cqw}
 .card:hover img{transform:translateX(-50%) scale(1.05)}
 .card__btn{position:relative;min-width:54%;padding:10px 0;background:#fff;text-align:center;font-size:17px;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,.25);transition:background .15s,color .15s}
 .card__btn:hover{background:var(--green);color:#fff}
-.menu .cards{padding-bottom:22px;margin-top:70px}
+.menu .cards{padding-bottom:22px;margin-top:20px}
 
 /* футер */
 .chain{padding:44px 0 56px;color:#fff;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url("assets/bg.jpg") center/cover}
@@ -138,7 +138,6 @@ body.modal-open{overflow:hidden}
   .card{height:230px}
   .card::before{height:110px}
   .card img{bottom:50px}
-  .card--drink img{height:200px;bottom:70px}
   .card__btn{font-size:14px;min-width:70%}
   .chain__list{grid-template-columns:1fr}
 
