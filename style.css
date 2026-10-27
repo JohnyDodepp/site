@@ -45,6 +45,7 @@ body.modal-open{overflow:hidden}
 .btn:hover{background:var(--green-dark)}
 .hero__arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:40px;height:40px;border:0;background:none;color:#fff;font-size:42px;line-height:1;opacity:.85}
 .hero__arrow:hover{opacity:1}
+.hero__arrow svg{width:32px;height:32px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .hero__arrow--next{left:14px}
 .hero__arrow--prev{right:14px}
 .hero__dots{position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:6px;padding:8px 20px 6px;background:#fff;border-radius:16px 16px 0 0}
@@ -80,6 +81,7 @@ body.modal-open{overflow:hidden}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 .modal__btn{position:absolute;top:10px;width:32px;height:32px;border:0;border-radius:50%;background:none;color:#666;font-size:26px;line-height:30px;font-family:Arial,sans-serif;padding:0}
 .modal__btn:hover{background:#f0f0f0}
+.modal__btn svg{width:18px;height:18px;margin:auto;display:block;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .modal__btn--close{left:10px}
 .modal__btn--back{right:10px}
 .modal__logo{width:84px;margin:0 auto 16px}
