@@ -57,7 +57,6 @@ body.modal-open{overflow:hidden}
 .section-title{margin:0 0 30px;text-align:center;font-size:22px;font-weight:700}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .card{container-type:inline-size;position:relative;height:300px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
-
 .card::before{content:"";position:absolute;left:0;right:0;bottom:22px;height:144px;background:var(--green);border-radius:4px}
 .card img{position:absolute;left:50%;bottom:59px;width:83%;transform:translateX(-50%);transition:transform .25s}
 .card--drink img{width:auto;height:83cqw}
@@ -126,16 +125,16 @@ body.modal-open{overflow:hidden}
 @media (max-width:900px){
   .nav{display:none}
   .cards{grid-template-columns:repeat(2,1fr);row-gap:50px}
+  .card{width:100%;max-width:260px;justify-self:center}
   .chain__list{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:600px){
-
   .header{height:72px}
   .header__logo img{height:38px}
   .hero{height:240px}
   .hero__content{padding:0 40px}
   .cards{grid-template-columns:1fr 1fr;gap:16px;row-gap:40px}
-  .card{height:230px}
+  .card{height:230px;max-width:200px}
   .card::before{height:110px}
   .card img{bottom:50px}
   .card__btn{font-size:14px;min-width:70%}
