@@ -1,0 +1,147 @@
+:root{
+  --green:#417f56;
+  --green-dark:#315c41;
+  --green-light:#e9f2ec;
+  --text:#353535;
+  --muted:#7a7a7a;
+  --line:#d8d8d8;
+  --red:#d85d5d;
+}
+/* общее */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Estedad",Tahoma,sans-serif;color:var(--text);background:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+[hidden]{display:none!important}
+body.modal-open{overflow:hidden}
+.container{width:min(1100px,100% - 40px);margin-inline:auto}
+
+/* шапка */
+.header{height:104px;background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 1px 0 #eee}
+.header__inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.header__logo img{height:50px;width:auto}
+.nav{display:flex;gap:28px;font-size:16px;font-weight:500}
+.nav__link{padding:6px 0;border-bottom:2px solid transparent;color:#444;transition:color .15s,border-color .15s}
+.nav__link:hover{color:var(--green);border-color:var(--green)}
+.nav__link--active{color:var(--green);border-color:var(--green)}
+.nav__link--drop::before{content:"";display:inline-block;width:6px;height:6px;margin-left:8px;border:solid #666;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translateY(-3px)}
+.header__icons{display:flex;gap:8px}
+.icon-btn{width:36px;height:36px;border:0;border-radius:6px;background:var(--green-light);display:grid;place-items:center;transition:background .15s}
+.icon-btn:hover{background:#d3e6d9}
+.icon-btn svg{width:20px;height:20px;fill:none;stroke:var(--green);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn.is-logged{background:var(--green)}
+.icon-btn.is-logged svg{stroke:#fff}
+
+/* слайдер */
+.hero{position:relative;height:303px;overflow:hidden;color:#fff;display:grid;place-items:center;text-align:center}
+.hero__slide{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transition:opacity .7s ease}
+.hero__slide::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.hero__slide.is-active{opacity:1}
+.hero__content{position:relative;z-index:2;padding:0 60px}
+.hero h1{margin:0 0 28px;font-size:clamp(22px,3.4vw,38px);font-weight:700;line-height:1.5}
+.btn{display:inline-block;padding:9px 28px;background:var(--green);color:#fff;border-radius:4px;font-size:14px;font-weight:500;transition:background .15s}
+.btn:hover{background:var(--green-dark)}
+.hero__arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:40px;height:40px;border:0;background:none;color:#fff;font-size:42px;line-height:1;opacity:.85}
+.hero__arrow:hover{opacity:1}
+.hero__arrow--next{left:14px}
+.hero__arrow--prev{right:14px}
+.hero__dots{position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:6px;padding:8px 20px 6px;background:#fff;border-radius:16px 16px 0 0}
+.hero__dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#c4c4c4;transition:background .2s,transform .2s}
+.hero__dots button.is-active{background:var(--green);transform:scale(1.25)}
+
+/* меню */
+.menu{padding:28px 0 42px}
+.section-title{margin:0 0 30px;text-align:center;font-size:22px;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{position:relative;height:300px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+
+.card::before{content:"";position:absolute;left:0;right:0;bottom:22px;height:144px;background:var(--green);border-radius:4px}
+.card img{position:absolute;left:50%;bottom:59px;width:83%;transform:translateX(-50%);transition:transform .25s}
+.card--drink img{width:auto;height:270px;bottom:89px}
+.card:hover img{transform:translateX(-50%) scale(1.05)}
+.card__btn{position:relative;min-width:54%;padding:10px 0;background:#fff;text-align:center;font-size:17px;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,.25);transition:background .15s,color .15s}
+.card__btn:hover{background:var(--green);color:#fff}
+.menu .cards{padding-bottom:22px;margin-top:70px}
+
+/* футер */
+.chain{padding:44px 0 56px;color:#fff;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url("assets/bg.jpg") center/cover}
+.chain__title{margin:0 0 26px;font-size:22px;font-weight:700}
+.chain__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.chain__list li{padding:18px;border:1px solid rgba(255,255,255,.25);border-radius:6px;background:rgba(255,255,255,.07);backdrop-filter:blur(2px)}
+.chain__list b{display:block;margin-bottom:6px;font-size:16px}
+.chain__list span{font-size:13px;color:#ddd}
+
+/* окно входа */
+.overlay{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:rgba(0,0,0,.6);animation:fade .2s ease}
+.modal{position:relative;width:392px;max-width:calc(100vw - 28px);background:#fff;border-radius:8px;padding:26px 24px 24px;box-shadow:0 10px 35px rgba(0,0,0,.3);animation:pop .22s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.modal__btn{position:absolute;top:10px;width:32px;height:32px;border:0;border-radius:50%;background:none;color:#666;font-size:26px;line-height:30px;font-family:Arial,sans-serif;padding:0}
+.modal__btn:hover{background:#f0f0f0}
+.modal__btn--close{left:10px}
+.modal__btn--back{right:10px}
+.modal__logo{width:84px;margin:0 auto 16px}
+.state{width:100%;min-width:0}
+.state h2{margin:0 0 7px;text-align:center;font-size:16px;font-weight:600}
+.desc{margin:0 0 18px;text-align:center;font-size:11px;line-height:1.9;color:var(--muted)}
+.desc b{font-weight:500;color:#444}
+
+.field{position:relative}
+.input{display:block;width:100%;height:42px;padding:0 12px;border:1px solid var(--line);border-radius:4px;font:500 14px "Estedad",Tahoma,sans-serif;color:#333;outline:none;text-align:right;transition:border-color .15s}
+.input:focus{border-color:var(--green)}
+.input.is-invalid{border-color:var(--red)}
+.field__label{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:11px;color:#999;pointer-events:none;transition:opacity .12s}
+.input:focus + .field__label,.input:not(:placeholder-shown) + .field__label{opacity:0}
+.hint{margin:6px 0 0;font-size:10px;color:var(--red)}
+
+.action{width:100%;height:42px;margin-top:16px;border:0;border-radius:4px;background:var(--green);color:#fff;font-size:13px;font-weight:500;transition:background .15s}
+.action:hover:not(:disabled){background:var(--green-dark)}
+.action:disabled{background:#e7e7e7;color:#aaa;cursor:not-allowed}
+.terms{margin:12px 0 0;text-align:center;font-size:9.5px;color:#777}
+
+.otp{display:flex;direction:ltr;justify-content:space-between;gap:8px;margin:4px 0 12px}
+.otp input{flex:1 1 0;width:0;min-width:0;height:44px;border:1px solid var(--line);border-radius:4px;text-align:center;font:500 16px "Estedad",Tahoma,sans-serif;color:#333;outline:none;transition:border-color .15s}
+.otp input:focus{border-color:var(--green)}
+.otp.is-error input{border-color:#e8b1b1;color:var(--red)}
+.otp.is-error{animation:shake .35s}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.under{display:flex;justify-content:space-between;align-items:center;min-height:20px;font-size:10px;color:#888}
+.under b{font-weight:500;color:#555}
+.link{padding:0;border:0;background:none;font-size:10px;color:#777}
+.link:hover{text-decoration:underline}
+.link--red{color:var(--red)}
+.msg{display:flex;align-items:center;justify-content:center;gap:7px;margin:14px 0 0;font-size:11px}
+.msg--error{color:var(--red)}
+.msg i{display:inline-grid;place-items:center;width:18px;height:18px;border:1.5px solid currentColor;border-radius:50%;font-style:normal;font-size:11px}
+.demo{margin:10px 0 0;text-align:center;font-size:10px;color:#aaa}
+
+.state--success{text-align:center;padding:6px 0 4px}
+.check{width:60px;height:60px;margin:6px auto 14px;display:grid;place-items:center;border-radius:50%;background:var(--green-light);color:var(--green);font-size:30px}
+
+/* адаптив */
+@media (max-width:900px){
+  .nav{display:none}
+  .cards{grid-template-columns:repeat(2,1fr);row-gap:50px}
+  .chain__list{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+
+  .header{height:72px}
+  .header__logo img{height:38px}
+  .hero{height:240px}
+  .hero__content{padding:0 40px}
+  .cards{grid-template-columns:1fr 1fr;gap:16px;row-gap:40px}
+  .card{height:230px}
+  .card::before{height:110px}
+  .card img{bottom:50px}
+  .card--drink img{height:200px;bottom:70px}
+  .card__btn{font-size:14px;min-width:70%}
+  .chain__list{grid-template-columns:1fr}
+
+  .overlay{background:#fff;place-items:stretch}
+  .modal{width:100%;max-width:none;height:100%;border-radius:0;box-shadow:none;padding:70px 24px 24px;display:flex;flex-direction:column;justify-content:center;animation:none}
+  .modal__btn{top:16px;color:#aaa}
+  .modal__logo{width:150px;margin-bottom:34px}
+}

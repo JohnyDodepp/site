@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ترخینه | سفارش آنلاین غذا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- шапка -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="#" class="header__logo"><img src="assets/logo.png" alt="ترخینه"></a>
+
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#" class="nav__link nav__link--active">صفحه اصلی</a>
+      <a href="#" class="nav__link nav__link--drop">شعبه</a>
+      <a href="#menu" class="nav__link nav__link--drop">منو</a>
+      <a href="#" class="nav__link">اعطای نمایندگی</a>
+      <a href="#" class="nav__link">درباره ما</a>
+      <a href="#footer" class="nav__link">تماس با ما</a>
+    </nav>
+
+    <div class="header__icons">
+      <button class="icon-btn" aria-label="جستجو">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="سبد خرید">
+        <svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h10.6L20 7H6.2"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg>
+      </button>
+      <button class="icon-btn" id="open-login" aria-label="ورود / ثبت‌نام">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- слайдер -->
+  <section class="hero" aria-roledescription="carousel">
+    <div class="hero__slide is-active" style="background-image:url(assets/slide1.jpg)"></div>
+    <div class="hero__slide" style="background-image:url(assets/slide2.jpg)"></div>
+    <div class="hero__slide" style="background-image:url(assets/slide3.jpg)"></div>
+
+    <div class="hero__content">
+      <h1>تجربه غذای سالم و گیاهی به سبک ترخینه</h1>
+      <a href="#menu" class="btn">سفارش آنلاین غذا</a>
+    </div>
+
+    <button class="hero__arrow hero__arrow--next" id="slide-next" aria-label="بعدی">‹</button>
+    <button class="hero__arrow hero__arrow--prev" id="slide-prev" aria-label="قبلی">›</button>
+
+    <div class="hero__dots" id="slide-dots"></div>
+  </section>
+
+  <!-- меню -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <h2 class="section-title">منوی رستوران</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="assets/food1.png" alt="غذای اصلی">
+          <a href="#" class="card__btn">غذای اصلی</a>
+        </article>
+        <article class="card">
+          <img src="assets/food2.png" alt="پیش غذا">
+          <a href="#" class="card__btn">پیش غذا</a>
+        </article>
+        <article class="card">
+          <img src="assets/food3.png" alt="دسر">
+          <a href="#" class="card__btn">دسر</a>
+        </article>
+        <article class="card card--drink">
+          <img src="assets/food4.png" alt="نوشیدنی">
+          <a href="#" class="card__btn">نوشیدنی</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- футер -->
+  <section class="chain" id="footer">
+    <div class="container">
+      <h2 class="chain__title">رستوران‌های زنجیره‌ای ترخینه</h2>
+      <ul class="chain__list">
+        <li><b>شعب</b><span>۴ شعبه در سراسر تهران</span></li>
+        <li><b>سرویس‌دهی</b><span>ارسال سریع به محل شما</span></li>
+        <li><b>مواد تازه</b><span>غذای سالم با مواد روز</span></li>
+        <li><b>تنوع منو</b><span>بیش از ۵۰ نوع غذا</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- окно входа -->
+<div class="overlay" id="overlay" hidden>
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+    <button class="modal__btn modal__btn--close" id="close-login" type="button" aria-label="بستن">×</button>
+    <button class="modal__btn modal__btn--back" id="back-btn" type="button" aria-label="بازگشت" hidden>›</button>
+
+    <img class="modal__logo" src="assets/logo.png" alt="ترخینه">
+
+    <!-- шаг 1 -->
+    <div class="state" data-state="phone">
+      <h2 id="modal-title">ورود / ثبت‌نام</h2>
+      <p class="desc">با وارد کردن شماره موبایل کد تاییدی برای شما ارسال خواهد شد.</p>
+
+      <div class="field">
+        <input id="phone" class="input" placeholder=" " type="tel" inputmode="numeric" maxlength="12" autocomplete="tel" dir="ltr" aria-label="شماره همراه">
+        <span class="field__label">شماره همراه</span>
+      </div>
+      <p class="hint" id="phone-hint" hidden>شماره باید از 10 تا 12 رقم باشد.</p>
+
+      <button class="action" id="phone-next" type="button" disabled>ادامه</button>
+      <p class="terms">ورود و عضویت در ترخینه به منزله قبول قوانین و مقررات است.</p>
+    </div>
+
+    <!-- шаг 2 -->
+    <div class="state" data-state="otp" hidden>
+      <h2>کد تایید</h2>
+      <p class="desc">کد تایید پنج‌رقمی به شماره <b class="shown-phone" dir="ltr"></b> ارسال شد.</p>
+
+      <div class="otp" id="otp">
+        <input maxlength="1" inputmode="numeric" autocomplete="one-time-code" aria-label="رقم ۱">
+        <input maxlength="1" inputmode="numeric" aria-label="رقم ۲">
+        <input maxlength="1" inputmode="numeric" aria-label="رقم ۳">
+        <input maxlength="1" inputmode="numeric" aria-label="رقم ۴">
+        <input maxlength="1" inputmode="numeric" aria-label="رقم ۵">
+      </div>
+
+      <div class="under">
+        <button class="link" id="edit-phone" type="button">ویرایش شماره</button>
+        <span id="timer-wrap">تا دریافت مجدد کد <b id="timer">2:00</b></span>
+        <button class="link link--red" id="resend" type="button" hidden>دریافت مجدد کد</button>
+      </div>
+
+      <p class="msg msg--error" id="otp-error" hidden><i>!</i> کد وارد شده صحیح نیست</p>
+      <p class="demo">برای تست، کد <b>12345</b> را وارد کنید.</p>
+
+      <button class="action" id="otp-next" type="button" disabled>ادامه</button>
+    </div>
+
+    <!-- шаг 3 -->
+    <div class="state state--success" data-state="success" hidden>
+      <div class="check">✓</div>
+      <h2>خوش آمدید!</h2>
+      <p class="desc">ورود شما با موفقیت انجام شد.</p>
+      <button class="action" id="done" type="button">ادامه خرید</button>
+    </div>
+  </section>
+</div>
+
+<!-- скрипт -->
+<script src="script.js"></script>
+</body>
+</html>
